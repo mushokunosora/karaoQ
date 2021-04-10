@@ -1,0 +1,79 @@
+header{
+    margin:5px;
+    height: 50px;
+    margin-bottom: 5px;
+}
+footer {
+    bottom: 0;
+    width: 100%;
+    height: 2.5rem;
+    border-radius: 555px 25px 15px 25px/25px 5px 35px 555px !important;
+    /*0 25px 225px 0/25px 0 25px 255px;*/
+    border-width: 2px 0 0;
+    border-color: #333;
+    border-style: solid;
+}
+.footer-nav{
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+}
+.foot-item{
+    display: inline;
+    padding-right: 1%;
+}
+#spanemail{
+    vertical-align: 10px;
+    font-size: 1.17em;
+}
+.img-baked{
+    width: 100%;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+
+}
+#mainbody{
+    position: relative;
+}
+.maintitle{
+    text-align: center;
+}
+.pp1{
+    height:65%;
+    width:65%;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+.myprofile{
+    height:250px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+.p1{
+    height:35%;
+    width:40%;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+.j1{
+    height:20%;
+    width:20%;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+.b1{
+    height:27%;
+    width:27%;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+.card{
+    margin-bottom: 5px;
+}
