@@ -61,7 +61,7 @@
                             </div>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="http://mygallery.jspaul2003.com">portfolio</a>
+                            <a class="nav-link" href="/portfolio">portfolio</a>
                         </li>
                     </ul>
                 </div>

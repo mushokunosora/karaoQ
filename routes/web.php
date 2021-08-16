@@ -22,3 +22,6 @@ Route::get('/coursework', function () {
 Route::get('/achievements', function () {
     return view('achievements');
 });
+Route::get('/portfolio', function () {
+    return view('gallery');
+});
