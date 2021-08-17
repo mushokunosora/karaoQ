@@ -65,11 +65,12 @@ tinymce.init({
     autoresize_bottom_margin: 16,
     setup: (editor) => {
         editor.on('init', () => {
-            editor.getContainer().style.transition="border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out"
+            editor.getContainer().style.transition="border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out";
+            editor.getContainer().className += ' with-border';
         });
         editor.on('focus', () => {
-            editor.getContainer().style.boxShadow="0 0 0 .2rem rgba(0, 123, 255, .25)",
-                editor.getContainer().style.borderColor="#80bdff"
+            editor.getContainer().style.boxShadow="0 0 0 .2rem rgba(118, 118, 118, 0.5)",
+                editor.getContainer().style.borderColor="#3498DA"
         });
         editor.on('blur', () => {
             editor.getContainer().style.boxShadow="",

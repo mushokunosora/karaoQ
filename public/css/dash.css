@@ -9,4 +9,16 @@
     object-fit: cover;
 }
 
+.with-border {
+    border: 2px solid black !important;
+}
+.tox-toolbar__primary{
+    border-bottom: 2px solid black !important;
+}
+.tox:not([dir=rtl]) .tox-toolbar__group:not(:last-of-type) {
+    border-right: 2px solid black !important;
+}
 
+.checky{
+    margin-left: 20% !important;
+}
