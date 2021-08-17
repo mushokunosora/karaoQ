@@ -11,8 +11,6 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="/css/bootstrap.min.css">
 
-    <link rel="stylesheet" href="/css/portfolio.css">
-
     <link rel="stylesheet" href="/fontawesome/css/all.css">
 
     <link href='/css/base.css' type='text/css' rel='stylesheet'>
@@ -36,12 +34,20 @@
                         <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" id="download" aria-expanded="false">news <span class="caret"></span></a>
                         <div class="dropdown-menu" aria-labelledby="download">
                             <a class="dropdown-item" href="/">coming soon</a>
+                            <!--<a class="dropdown-item" rel="noopener" target="_blank" href="https://jsfiddle.net/bootswatch/gbuemo39/">/a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item" href="../4/sketchy/bootstrap.min.css" download="">bootstrap.min.css</a>
+                            <a class="dropdown-item" href="../4/sketchy/bootstrap.css" download="">bootstrap.css</a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item" href="../4/sketchy/_variables.scss" download="">_variables.scss</a>
+                            <a class="dropdown-item" href="../4/sketchy/_bootswatch.scss" download="">_bootswatch.scss</a>!-->
                         </div>
                     </li>
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" id="download" aria-expanded="false">about me<span class="caret"></span></a>
                         <div class="dropdown-menu" aria-labelledby="download">
-                            <a class="dropdown-item" href="/#home">home</a>
+                            <a class="dropdown-item" href="/">home</a>
+                            <a class="dropdown-item" href="/#welcome">welcome</a>
                             <a class="dropdown-item" href="/#education">education</a>
                             <a class="dropdown-item" href="/#achievements">achievements</a>
                             <a class="dropdown-item" href="/#languages">languages</a>
@@ -55,7 +61,7 @@
                         </div>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">portfolio</a>
+                        <a class="nav-link " href="/portfolio">portfolio</a>
                     </li>
                 </ul>
                 <ul class="navbar-nav ml-auto">
@@ -93,44 +99,28 @@
 <br>
 
 <div class="container" id="mainbody">
-    <br>
-    <br>
+            <div class="card">
+                <div class="card-header">{{ __('Dashboard') }}</div>
 
-    <div class="grid-container">
-        <?php
-        $directory = 'gallery/';
+                <div class="card-body">
+                    @if (session('status'))
+                        <div class="alert alert-success" role="alert">
+                            {{ session('status') }}
+                        </div>
+                    @endif
 
-        if (!is_dir($directory)) {
-            exit('Invalid diretory path');
-        }
-
-        $files = array();
-        foreach (scandir($directory) as $file) {
-            if ($file !== '.' && $file !== '..' && $file !== '.DS_Store') {
-                $files[] = $file;
-
-                echo '
-                <div class="gallery">
-                    <a href="/art/'. $file . '">
-                    <img src="/gallery/'. $file .'">
-                </a>
-            </div>';
-
-
-            }
-        }
-
-        //var_dump($files);
-        ?>
-    </div>
-
+                    {{ __('Welcome!') }}
+                </div>
+            </div>
     <div class="baked">
         <br>
         <img class="img-baked" src="images/ground.jpg" alt="">
         <br>
     </div>
+
 </div>
-</body>
+
+
 
 
 
@@ -167,5 +157,3 @@
 </footer>
 
 </body>
-
-

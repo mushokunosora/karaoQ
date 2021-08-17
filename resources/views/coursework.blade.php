@@ -63,6 +63,34 @@
                             <a class="nav-link" href="/portfolio">portfolio</a>
                         </li>
                     </ul>
+                    <ul class="navbar-nav ml-auto">
+                        @if(Auth::check())
+                            <li class="nav-item dropdown">
+
+                                <a href="#" class="nav-link dropdown-toggle acc" data-toggle="dropdown" role="button" aria-expanded="false">my account <span class="caret"></span></a>
+                                <ul class="dropdown-menu" role="menu">
+                                    <li><a class="dropdown-item" href="/account">Profile</a></li>
+
+                                    <li><a class="dropdown-item" href="{{ url('/logout') }}">Logout</a></li>
+
+                                </ul>
+
+                            </li>
+
+                        @else
+                            <li class="nav-item dropdown">
+
+                                <a href="#" class="nav-link dropdown-toggle acc" data-toggle="dropdown" role="button" aria-expanded="false">my account <span class="caret"></span></a>
+                                <ul class="dropdown-menu" role="menu">
+                                    <li><a class="dropdown-item" href="/register">Sign Up</a></li>
+
+                                    <li><a class="dropdown-item" href="/login">Login</a></li>
+                                </ul>
+
+                            </li>
+
+                        @endif
+                    </ul>
                 </div>
             </div>
         </div>

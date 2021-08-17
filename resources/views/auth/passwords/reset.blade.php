@@ -11,11 +11,10 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="/css/bootstrap.min.css">
 
-    <link rel="stylesheet" href="/css/portfolio.css">
-
     <link rel="stylesheet" href="/fontawesome/css/all.css">
 
     <link href='/css/base.css' type='text/css' rel='stylesheet'>
+    <link href='/css/auth.css' type='text/css' rel='stylesheet'>
 
     <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32.png">
 
@@ -55,75 +54,72 @@
                         </div>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">portfolio</a>
+                        <a class="nav-link" href="/portfolio">portfolio</a>
                     </li>
-                </ul>
-                <ul class="navbar-nav ml-auto">
-                    @if(Auth::check())
-                        <li class="nav-item dropdown">
-
-                            <a href="#" class="nav-link dropdown-toggle acc" data-toggle="dropdown" role="button" aria-expanded="false">my account <span class="caret"></span></a>
-                            <ul class="dropdown-menu" role="menu">
-                                <li><a class="dropdown-item" href="/account">Profile</a></li>
-
-                                <li><a class="dropdown-item" href="{{ url('/logout') }}">Logout</a></li>
-
-                            </ul>
-
-                        </li>
-
-                    @else
-                        <li class="nav-item dropdown">
-
-                            <a href="#" class="nav-link dropdown-toggle acc" data-toggle="dropdown" role="button" aria-expanded="false">my account <span class="caret"></span></a>
-                            <ul class="dropdown-menu" role="menu">
-                                <li><a class="dropdown-item" href="/register">Sign Up</a></li>
-
-                                <li><a class="dropdown-item" href="/login">Login</a></li>
-                            </ul>
-
-                        </li>
-
-                    @endif
                 </ul>
             </div>
         </div>
     </div>
 </header>
 <br>
-
 <div class="container" id="mainbody">
-    <br>
-    <br>
+        <div class="col-md-8">
+            <div class="card">
+                <div class="card-header">{{ __('Reset Password') }}</div>
 
-    <div class="grid-container">
-        <?php
-        $directory = 'gallery/';
+                <div class="card-body">
+                    <form method="POST" action="{{ route('password.update') }}">
+                        @csrf
 
-        if (!is_dir($directory)) {
-            exit('Invalid diretory path');
-        }
+                        <input type="hidden" name="token" value="{{ $token }}">
 
-        $files = array();
-        foreach (scandir($directory) as $file) {
-            if ($file !== '.' && $file !== '..' && $file !== '.DS_Store') {
-                $files[] = $file;
+                        <div class="form-group row">
+                            <label for="email" class="col-md-4 col-form-label text-md-right">{{ __('E-Mail Address') }}</label>
 
-                echo '
-                <div class="gallery">
-                    <a href="/art/'. $file . '">
-                    <img src="/gallery/'. $file .'">
-                </a>
-            </div>';
+                            <div class="col-md-6">
+                                <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ $email ?? old('email') }}" required autocomplete="email" autofocus>
 
+                                @error('email')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                            </div>
+                        </div>
 
-            }
-        }
+                        <div class="form-group row">
+                            <label for="password" class="col-md-4 col-form-label text-md-right">{{ __('Password') }}</label>
 
-        //var_dump($files);
-        ?>
+                            <div class="col-md-6">
+                                <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="new-password">
+
+                                @error('password')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <label for="password-confirm" class="col-md-4 col-form-label text-md-right">{{ __('Confirm Password') }}</label>
+
+                            <div class="col-md-6">
+                                <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required autocomplete="new-password">
+                            </div>
+                        </div>
+
+                        <div class="form-group row mb-0">
+                            <div class="col-md-6 offset-md-4">
+                                <button type="submit" class="btn btn-primary">
+                                    {{ __('Reset Password') }}
+                                </button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
     </div>
-
     <div class="baked">
         <br>
         <img class="img-baked" src="images/ground.jpg" alt="">
@@ -131,11 +127,6 @@
     </div>
 </div>
 </body>
-
-
-
-
-
 
 <footer>
     <br>
@@ -165,7 +156,3 @@
     </div>
     <br>
 </footer>
-
-</body>
-
-

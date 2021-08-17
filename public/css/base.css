@@ -80,3 +80,7 @@ footer {
 .display-3{
     font-size: 3.5rem;
 }
+
+.acc{
+    float:right;
+}

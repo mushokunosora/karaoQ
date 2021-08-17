@@ -14,6 +14,7 @@
     <link rel="stylesheet" href="/fontawesome/css/all.css">
 
     <link href='/css/base.css' type='text/css' rel='stylesheet'>
+    <link href='/css/auth.css' type='text/css' rel='stylesheet'>
 
     <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32.png">
 
@@ -34,13 +35,6 @@
                             <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" id="download" aria-expanded="false">news <span class="caret"></span></a>
                             <div class="dropdown-menu" aria-labelledby="download">
                                 <a class="dropdown-item" href="/">coming soon</a>
-                                <!--<a class="dropdown-item" rel="noopener" target="_blank" href="https://jsfiddle.net/bootswatch/gbuemo39/">/a>
-                                <div class="dropdown-divider"></div>
-                                <a class="dropdown-item" href="../4/sketchy/bootstrap.min.css" download="">bootstrap.min.css</a>
-                                <a class="dropdown-item" href="../4/sketchy/bootstrap.css" download="">bootstrap.css</a>
-                                <div class="dropdown-divider"></div>
-                                <a class="dropdown-item" href="../4/sketchy/_variables.scss" download="">_variables.scss</a>
-                                <a class="dropdown-item" href="../4/sketchy/_bootswatch.scss" download="">_bootswatch.scss</a>!-->
                             </div>
                         </li>
                         <li class="nav-item dropdown">
@@ -99,94 +93,64 @@
 
     <div class="container" id="mainbody">
         <br>
-        <br>
+        <div class="row justify-content-center">
+            <div class="col-md-8">
+                <div class="card">
+                    <div class="card-header">{{ __('Login') }}</div>
 
-        <div id="accordion" role="tablist" aria-multiselectable="true">
-            <div class="card">
-                <div class="card-header panel-clr2 collapsed" role="tab" data-toggle="collapse" data-parent="#accordion" data-target="#h1" aria-expanded="false" aria-controls="h1" style="">
-                    <p class="lead">
-                        <b>GCSE/IGCSEs</b>
-                    </p>
-                </div>
-                <div id="h1" class="collapse" role="tabpanel" aria-labelledby="h1" style="background-color: transparent; padding: 0px;">
-                    <div class="lead" id="classes">
-                        <br>
-                        <ul>
-                            <li>2018, June, French, A*</li>
-                            <li>2018, June, Latin, 9</li>
-                            <li>2020, June, Art and Design: Fine Art, 9</li>
-                            <li>2020, June, Biology, 9</li>
-                            <li>2020, June, Chemistry, 9</li>
-                            <li>2020, June, Chinese, A*</li>
-                            <li>2020, June, Electronics, 9</li>
-                            <li>2020, June, English Language, 9 Distinction</li>
-                            <li>2020, June, English Literature, 9</li>
-                            <li>2020, June, Geography, 9</li>
-                            <li>2020, June, Mathematics, 9</li>
-                            <li>2020, June, Physics, 9</li>
-                        </ul>
-                        <br>
-                    </div>
-                </div>
-            </div>
-        </div>
+                    <div class="card-body">
+                        <form method="POST" action="{{ route('login') }}">
+                            @csrf
 
-        <div id="accordion" role="tablist" aria-multiselectable="true">
-            <div class="card">
-                <div class="card-header panel-clr2 collapsed" role="tab" data-toggle="collapse" data-parent="#accordion" data-target="#h2" aria-expanded="false" aria-controls="h2" style="">
-                    <p class="lead">
-                        <b>Free-Standing Mathematics Qualification</b>
-                    </p>
-                </div>
-                <div id="h2" class="collapse" role="tabpanel" aria-labelledby="h2" style="background-color: transparent; padding: 0px;">
-                    <div class="lead" id="classes">
-                        <br>
-                        <ul>
-                            <li>2019, June, Additional Mathematics, A</li>
-                        </ul>
-                        <br>
-                    </div>
-                </div>
-            </div>
-        </div>
+                            <div class="form-group row">
+                                <label for="email" class="col-md-4 col-form-label text-md-right">{{ __('E-Mail Address') }}</label>
 
-        <div id="accordion" role="tablist" aria-multiselectable="true">
-            <div class="card">
-                <div class="card-header panel-clr2 collapsed" role="tab" data-toggle="collapse" data-parent="#accordion" data-target="#h3" aria-expanded="false" aria-controls="h3" style="">
-                    <p class="lead">
-                        <b>Advanced Placement Exams</b>
-                    </p>
-                </div>
-                <div id="h3" class="collapse" role="tabpanel" aria-labelledby="h3" style="background-color: transparent; padding: 0px;">
-                    <div class="lead" id="classes">
-                        <br>
-                        <ul>
-                            <li>2019, Calculus BC, 5 </li>
-                            <li>2019, Calculus BC AB Subscore, 5 </li>
-                            <li>2019, Computer Science A, 5</li>
-                        </ul>
-                        <br>
-                    </div>
-                </div>
-            </div>
-        </div>
+                                <div class="col-md-6">
+                                    <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>
 
-        <div id="accordion" role="tablist" aria-multiselectable="true">
-            <div class="card">
-                <div class="card-header panel-clr2 collapsed" role="tab" data-toggle="collapse" data-parent="#accordion" data-target="#h4" aria-expanded="false" aria-controls="h4" style="">
-                    <p class="lead">
-                        <b>GCE A-Levels</b>
-                    </p>
-                </div>
-                <div id="h4" class="collapse" role="tabpanel" aria-labelledby="h4" style="background-color: transparent; padding: 0px;">
-                    <div class="lead" id="classes">
-                        <br>
-                        <ul>
-                            <li>2020, June, Mathematics, A*</li>
-                            <li>2020, June, Further Mathematics, A*</li>
-                            <li>2020, June, Statistics, A*</li>
-                        </ul>
-                        <br>
+                                    @error('email')
+                                        <span class="invalid-feedback" role="alert">
+                                            <strong>{{ $message }}</strong>
+                                        </span>
+                                    @enderror
+                                </div>
+                            </div>
+
+                            <div class="form-group row">
+                                <label for="password" class="col-md-4 col-form-label text-md-right">{{ __('Password') }}</label>
+
+                                <div class="col-md-6">
+                                    <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="current-password">
+
+                                    @error('password')
+                                        <span class="invalid-feedback" role="alert">
+                                            <strong>{{ $message }}</strong>
+                                        </span>
+                                    @enderror
+                                </div>
+                            </div>
+
+                            <div class="form-group row">
+                                        <label class="col-md-5 col-form-label text-md-right" for="remember">
+                                            {{ ('Remember Me') }}
+                                        <input class="checky" type="checkbox" name="remember" id="remember" {{ old('remember') ? 'checked' : '' }}>
+                                        </label>
+                            </div>
+
+                            <div class="form-group row mb-0">
+                                <div class="col-md-8 offset-md-4">
+                                    <button type="submit" class="btn btn-primary">
+                                        {{ __('Login') }}
+                                    </button>
+
+                                    @if (Route::has('password.request'))
+                                        <a class="btn btn-link" href="{{ route('password.request') }}">
+                                            {{ __('Forgot Your Password?') }}
+                                        </a>
+                                    @endif
+                                </div>
+                            </div>
+                        </form>
                     </div>
                 </div>
             </div>
@@ -198,6 +162,7 @@
             <br>
         </div>
     </div>
+</body>
 
 
 
@@ -232,11 +197,4 @@
         </div>
         <br>
     </footer>
-
-</body>
-
-
-
-
-
 
