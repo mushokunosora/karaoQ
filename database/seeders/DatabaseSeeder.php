@@ -4,6 +4,8 @@ namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
 
+//CALL php artisan migrate:refresh --seed
+
 class DatabaseSeeder extends Seeder
 {
     /**
