@@ -1,3 +1,5 @@
+Dropzone.autoDiscover = false;
+
 jQuery(document).ready(function(){
     jQuery('#editsettingsdiv').toggle(false);
     jQuery('#profileedit').toggle(false);
@@ -39,8 +41,6 @@ jQuery(document).ready(function(){
     });
 
 
-
-
     //edit buttons
     jQuery('#editprofile').on('click', function(event) {
         profile_edit = true;
@@ -71,6 +71,63 @@ jQuery(document).ready(function(){
         }
         return;
     };
+
+
+    //new profile pic
+    var backinblack = false;
+
+    document.addEventListener("click", (evt) => {
+        const flyoutElement = document.getElementById("modal1");
+        const flyoutElement2 = document.getElementById("myDropzone");
+        const flyoutElement3 = document.getElementsByClassName("dz-hidden-input")[0];
+        let targetElement = evt.target; // clicked element
+        //console.log(evt.target);
+        do {
+            if (targetElement == flyoutElement || targetElement == flyoutElement2 ||
+                targetElement == flyoutElement3) {
+                return;
+            }
+            // Go up the DOM
+            targetElement = targetElement.parentNode;
+        } while (targetElement);
+
+        // This is a click outside.
+        if(backinblack) {
+            jQuery(".modal, .modal-backdrop").removeClass("open");
+            backinblack = false;
+        }
+        else if(evt.target == document.getElementById("profilepic")){
+            backinblack = true;
+            jQuery(".js-upload-file, .modal-backdrop").addClass("open");
+        }
+    })
+
+    var dropzoneOptions= {
+        paramName: "profilefile",
+        maxFiles: 1,
+        maxFilesize: 5,
+        renameFile: "profile",
+        addRemoveLinks : true,
+        acceptedFiles: ".jpeg,.jpg,.png,.gif",
+        dictDefaultMessage :
+            '</i> drop files</span> to upload \
+               <span class="smaller-80 grey">(or click)</span> <br /> \
+               <i class="upload-icon fa fa-cloud-upload blue fa-3x"></i>',
+        dictResponseError: 'Error while uploading file!',
+        accept: function(file, done) {
+            done();
+        },
+        init: function() {
+            this.on("addedfile", function() {
+                if (this.files[1]!=null){
+                    this.removeFile(this.files[0]);
+                }
+            });
+        }
+    }
+
+    var myDropzone = new Dropzone(document.querySelector('#myDropzone'), dropzoneOptions)
+
 });
 
 //about editor
