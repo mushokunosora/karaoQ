@@ -47,16 +47,20 @@
                                 <br>
                                 @if(strlen(Auth::user()["about"])>0)
                                     <h4>about</h4>
-                                    {!! Auth::user()["about"] !!}
-                                    <br>
+                                    <div class="form-group">
+                                        <textarea id="editor2">{!! Auth::user()["about"] !!}</textarea>
+                                    </div>
                                 @endif
                                 @if(strlen(Auth::user()["location"])>0)
+                                    <br>
                                     <div class ="row">
                                         <div class="col-lg-1">
-                                            <i class="fas fa-map-marker-alt" style="font-size:35px;"></i></a><span>
+                                            <i class="fas fa-map-marker-alt" style="font-size:30px;"></i></a><span>
                                         </div>
                                         <div class="col-lg-7">
+                                            <h5>
                                             {{Auth::user()["location"]}}
+                                            </h5>
                                         </div>
                                     </div>
                                     <br>
@@ -67,13 +71,18 @@
 
                             </div>
 
-
+                            <!--EDITING-->
                             <div class="tab-pane" id="profileedit">
-                                <form>
+                                <form method="post" action="{{url('account/profilesave')}}" enctype="multipart/form-data"
+                                      id="profileform">
+                                @csrf <!-- {{ csrf_field() }} -->
                                     <br>
+                                    <input type="hidden" id='abouti' name='abouti'/>
+                                    <input type="hidden" name="showmail"  id='showmaili'>
+                                    <input type="hidden" name="showloc" id='showloci'>
                                     <label><h4>about</h4></label>
                                     <div class="form-group">
-                                        <textarea id="editor"></textarea>
+                                        <textarea id="editor" maxlength=1000>{!! Auth::user()["about"] !!}</textarea>
                                     </div>
                                     <br>
                                     <div class ="row">
@@ -81,7 +90,7 @@
                                             <i class="fas fa-map-marker-alt" style="font-size:35px;"></i></a><span>
                                         </div>
                                         <div class="col-lg-7">
-                                            <input class="form-control" id="locationin" type="text" placeholder="{{Auth::user()["location"]}}"">
+                                            <input class="form-control" id="locationin" type="text" value="{{Auth::user()["location"]}}" name="locationin" />
                                         </div>
                                     </div>
                                     <br>
@@ -93,7 +102,11 @@
                                             </label>
                                         </div>
                                         <div class="col-lg-1">
-                                            <input class="checky" type="checkbox" name="showloca" id="showloca">
+                                            @if(Auth::user()["showloc"]==0)
+                                                <input class="checky" type="checkbox" id="showloca"/>
+                                            @else
+                                                <input class="checky" type="checkbox" id="showloca" checked/>
+                                            @endif
                                         </div>
                                     </div>
                                     <div class="row">
@@ -103,7 +116,11 @@
                                             </label>
                                         </div>
                                         <div class="col-lg-1">
-                                            <input class="checky" type="checkbox" name="showmail" id="showmail">
+                                            @if(Auth::user()["showemail"]==0)
+                                                <input class="checky" type="checkbox" id="showmail"/>
+                                            @else
+                                                <input class="checky" type="checkbox" id="showmail" checked/>
+                                            @endif
                                         </div>
                                     </div>
                                 </form>
@@ -192,6 +209,16 @@
                         <div id="editsettingsdiv">
                             <button id="editsettings" class="btn btn-primary">
                                 edit settings
+                            </button>
+                        </div>
+                        <div id="saveprofilediv">
+                            <button id="saveprofile" type="submit" class="btn btn-primary" form="profileform">
+                                save
+                            </button>
+                        </div>
+                        <div id="savesettingsdiv">
+                            <button id="savesettings" class="btn btn-primary">
+                                save
                             </button>
                         </div>
 

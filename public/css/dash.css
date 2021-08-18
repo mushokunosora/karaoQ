@@ -22,3 +22,8 @@
 .checky{
     margin-left: 20% !important;
 }
+
+.tox-tinymce--disabled{
+    border: none !important;
+}
+

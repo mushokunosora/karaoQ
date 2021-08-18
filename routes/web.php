@@ -36,3 +36,5 @@ Auth::routes();
 
 Route::get('logout', 'Auth\LoginController@logout');
 
+Route::post('account/profilesave','AccountController@profileSave');
+

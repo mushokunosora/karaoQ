@@ -21,7 +21,7 @@ class CreateUsersTable extends Migration
             $table->boolean('admin');
             $table->string('password');
             $table->string('profilefile');
-            $table->string('about');
+            $table->text('about');
             $table->string('location');
             $table->boolean('showemail');
             $table->boolean('showloc');
