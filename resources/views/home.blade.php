@@ -1,11 +1,17 @@
 @extends('template')
 
 @push('head')
+    <meta name="csrf-token" content="{{ csrf_token() }}">
     <link href='/css/dash.css' type='text/css' rel='stylesheet'>
     <link href='/dropzone/dist/basic.css' type='text/css' rel='stylesheet'>
     <link href='/dropzone/dist/dropzone.css' type='text/css' rel='stylesheet'>
+    <link  href="/cropperjs/dist/cropper.css" rel="stylesheet">
     <script src="https://cdn.tiny.cloud/1/9q2wmbwknlog4vltrb8u9ldfc2ws9l1d6pou2ilfbxg8l3vk/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
     <script src="/dropzone/dist/dropzone.js"></script>
+    <script src="/cropperjs/dist/cropper.js"></script>
+    <script>
+        var user = {!! auth()->user()->toJson() !!}["id"];
+    </script>
     <script src="js/acc.js"></script>
 @endpush
 
@@ -39,10 +45,11 @@
                                     </div>
                                     <div class="modal-body">
 
-                                        <form id="myDropzone" action="/profileimgsave" class="dropzone" method="post" enctype="multipart/form-data">
+                                        <form id="myDropzone" action="/account/profileimgsave" class="dropzone" method="post" enctype="multipart/form-data">
                                             @csrf <!-- {{ csrf_field() }} -->
+                                            <input id="user" name="user" type="hidden"/>
                                             <div class="fallback">
-                                                <input name="file" type="file" />
+                                                <input name="profilefile" type="file" />
                                             </div>
                                         </form>
 

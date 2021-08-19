@@ -74,6 +74,56 @@ jQuery(document).ready(function(){
 
 
     //new profile pic
+    document.getElementById('user').value = user;
+
+    var dropzoneOptions= {
+        paramName: "profilefile",
+        maxFiles: 1,
+        maxFilesize: 5,
+        renameFile: "profilefile",
+        addRemoveLinks : true,
+        acceptedFiles: ".jpeg,.jpg,.png,.gif",
+        dictDefaultMessage :
+            '</i> drop files</span> to upload \
+               <span class="smaller-80 grey">(or click)</span> <br /> \
+               <i class="upload-icon fa fa-cloud-upload blue fa-3x"></i>',
+        dictResponseError: 'Error while uploading file!',
+        accept: function(file, done) {
+            done();
+        },
+        init: function() {
+            this.on("addedfile", function() {
+                if (this.files[1]!=null){
+                    this.removeFile(this.files[0]);
+                }
+            });
+        },
+        removedfile: function(file)
+        {
+            if(file.previewElement.id != ""){
+                var name = file.previewElement.id;
+            }else{
+                var name = file.name;
+            }
+            console.log(name);
+            $.ajax({
+                headers: {
+                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                },
+                type: 'POST',
+                url: '/account/profileimgdel',
+                data: {filename: name, userid: user},
+                error: function(e) {
+                    console.log(e);
+                }});
+            var fileRef;
+            return (fileRef = file.previewElement) != null ?
+                fileRef.parentNode.removeChild(file.previewElement) : void 0;
+        }
+    }
+
+    var myDropzone = new Dropzone(document.querySelector('#myDropzone'), dropzoneOptions)
+
     var backinblack = false;
 
     document.addEventListener("click", (evt) => {
@@ -95,38 +145,13 @@ jQuery(document).ready(function(){
         if(backinblack) {
             jQuery(".modal, .modal-backdrop").removeClass("open");
             backinblack = false;
+            myDropzone.removeFile(myDropzone.files[0]);
         }
         else if(evt.target == document.getElementById("profilepic")){
             backinblack = true;
             jQuery(".js-upload-file, .modal-backdrop").addClass("open");
         }
     })
-
-    var dropzoneOptions= {
-        paramName: "profilefile",
-        maxFiles: 1,
-        maxFilesize: 5,
-        renameFile: "profile",
-        addRemoveLinks : true,
-        acceptedFiles: ".jpeg,.jpg,.png,.gif",
-        dictDefaultMessage :
-            '</i> drop files</span> to upload \
-               <span class="smaller-80 grey">(or click)</span> <br /> \
-               <i class="upload-icon fa fa-cloud-upload blue fa-3x"></i>',
-        dictResponseError: 'Error while uploading file!',
-        accept: function(file, done) {
-            done();
-        },
-        init: function() {
-            this.on("addedfile", function() {
-                if (this.files[1]!=null){
-                    this.removeFile(this.files[0]);
-                }
-            });
-        }
-    }
-
-    var myDropzone = new Dropzone(document.querySelector('#myDropzone'), dropzoneOptions)
 
 });
 
