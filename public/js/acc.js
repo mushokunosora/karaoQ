@@ -72,7 +72,6 @@ jQuery(document).ready(function(){
         return;
     };
 
-
     //new profile pic
     document.getElementById('user').value = user;
 
@@ -89,6 +88,7 @@ jQuery(document).ready(function(){
                <i class="upload-icon fa fa-cloud-upload blue fa-3x"></i>',
         dictResponseError: 'Error while uploading file!',
         accept: function(file, done) {
+            document.getElementById("saveprofilefile").innerText="save";
             done();
         },
         init: function() {
@@ -105,7 +105,7 @@ jQuery(document).ready(function(){
             }else{
                 var name = file.name;
             }
-            console.log(name);
+            document.getElementById("saveprofilefile").innerText="exit";
             $.ajax({
                 headers: {
                     'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
@@ -145,13 +145,20 @@ jQuery(document).ready(function(){
         if(backinblack) {
             jQuery(".modal, .modal-backdrop").removeClass("open");
             backinblack = false;
-            myDropzone.removeFile(myDropzone.files[0]);
+            if (myDropzone.files[1]!=null) {
+                myDropzone.removeFile(myDropzone.files[0]);
+            }
         }
         else if(evt.target == document.getElementById("profilepic")){
             backinblack = true;
             jQuery(".js-upload-file, .modal-backdrop").addClass("open");
         }
-    })
+    });
+
+    jQuery('#saveprofilefile').on('click', function(event) {
+        jQuery(".modal, .modal-backdrop").removeClass("open");
+        backinblack = false;
+    });
 
 });
 

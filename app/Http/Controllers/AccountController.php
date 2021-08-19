@@ -66,6 +66,11 @@ class AccountController extends Controller
         return \Redirect::to('/register');
     }
 
+    public function storeBeta(Request $request)
+    {
+
+    }
+
     public function destroytmppic(Request $request)
     {
         $filename =  $request->get('filename');

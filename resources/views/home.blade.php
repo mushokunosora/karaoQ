@@ -56,7 +56,7 @@
                                     </div>
                                     <div class="modal-footer">
                                         <button id="saveprofilefile" class="btn btn-primary">
-                                        save
+                                        exit
                                         </button>
                                     </div>
                                 </div>
@@ -81,7 +81,7 @@
                             <div id="myTabContent" class="tab-content">
                                 <div class="tab-pane fade active show" id="profile">
                                     <br>
-                                    @if(strlen(Auth::user()["about"])>0)
+                                    @if(strlen(strip_tags(Auth::user()["about"]))>14)
                                         <h4>about</h4>
                                         <div class="form-group">
                                             <textarea id="editor2">{!! Auth::user()["about"] !!}</textarea>
@@ -101,7 +101,7 @@
                                         </div>
                                         <br>
                                     @endif
-                                    @if(strlen(Auth::user()["about"])==0 and strlen(Auth::user()["location"])==0)
+                                    @if(strlen(strip_tags(Auth::user()["about"]))<=14 and strlen(Auth::user()["location"])==0)
                                         <h4>Your profile is looking a little empty right now. Add some facts so others can learn about you!</h4>
                                     @endif
 
