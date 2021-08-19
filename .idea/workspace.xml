@@ -4,8 +4,18 @@
     <list default="true" id="2f03b653-537b-4e86-8dd1-b151a51de64d" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/AccountController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/AccountController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/cropperjs/dist/cropper.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/cropperjs/dist/cropper.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/css/dash.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/dash.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/public/js/acc.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/acc.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/profiles/Screenshot 2021-01-12 at 11.08.41-1629326776-1.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/tmp-profiles/Screenshot 2021-01-12 at 11.08.41-1-1629331932.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/tmp-profiles/Screenshot 2021-01-12 at 11.08.41-3-1629372583.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/tmp-profiles/Screenshot 2021-01-12 at 11.08.41-3-1629372684.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/tmp-profiles/Screenshot 2021-01-12 at 11.08.41-3-1629372852.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/tmp-profiles/Screenshot 2021-01-12 at 11.08.41-3-1629372894.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/tmp-profiles/Screenshot 2021-01-12 at 11.08.41-3-1629372946.png" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/home.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/home.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

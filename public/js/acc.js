@@ -130,11 +130,16 @@ jQuery(document).ready(function(){
         const flyoutElement = document.getElementById("modal1");
         const flyoutElement2 = document.getElementById("myDropzone");
         const flyoutElement3 = document.getElementsByClassName("dz-hidden-input")[0];
+        const flyoutElement4 = document.getElementById("cropdiv");
+        const flyoutElement5 = document.getElementById("modal2");
         let targetElement = evt.target; // clicked element
         //console.log(evt.target);
         do {
             if (targetElement == flyoutElement || targetElement == flyoutElement2 ||
-                targetElement == flyoutElement3) {
+                targetElement == flyoutElement3 ||
+                targetElement == flyoutElement4 ||
+                targetElement == flyoutElement5
+            ) {
                 return;
             }
             // Go up the DOM
@@ -145,7 +150,7 @@ jQuery(document).ready(function(){
         if(backinblack) {
             jQuery(".modal, .modal-backdrop").removeClass("open");
             backinblack = false;
-            if (myDropzone.files[1]!=null) {
+            if (myDropzone.files[0]!=null) {
                 myDropzone.removeFile(myDropzone.files[0]);
             }
         }
@@ -155,10 +160,57 @@ jQuery(document).ready(function(){
         }
     });
 
+
     jQuery('#saveprofilefile').on('click', function(event) {
         jQuery(".modal, .modal-backdrop").removeClass("open");
         backinblack = false;
+        if (myDropzone.files[0]!=null) {
+            backinblack = true;
+            //console.log(myDropzone.files[0].dataURL);
+            jQuery(".js-crop-file, .modal-backdrop").addClass("open");
+            document.getElementById('cropimage').src=myDropzone.files[0].dataURL;
+
+        }
+
+        const image = document.getElementById('cropimage');
+        const cropper = new Cropper(image, {
+            aspectRatio: 1 / 1,
+            viewmode: 3,
+            background: false,
+            movable:false,
+            scalable:false,
+            rotatable:false,
+            zoomable:false,
+            zoomOnTouch:false,
+            zoomOnWheel:false,
+            ready: function () {
+                //Should set crop box data first here
+                var contData = cropper.getContainerData(); //Get container data
+                cropper.setCropBoxData({ height: contData.height, width: contData.width }) //set data
+            }
+        });
+
+        jQuery('#cropprofilefile').on('click', function(event) {
+            backinblack = false;
+            const croppedimage = cropper.getCroppedCanvas().toDataURL();
+            console.log(croppedimage);
+            jQuery(".js-crop-file, .modal-backdrop").removeClass("open");
+            document.getElementById("profilepic").src=croppedimage;
+            $.ajax({
+                headers: {
+                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                },
+                type: 'POST',
+                url: '/account/profileimgsave2',
+                data:{file: croppedimage},
+                error: function(e) {
+                    console.log(e);
+                }});
+        });
+
     });
+
+
 
 });
 

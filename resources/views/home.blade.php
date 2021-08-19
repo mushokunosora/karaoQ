@@ -63,6 +63,27 @@
                             </div>
                         </div>
 
+                        <div class="modal js-crop-file">
+                            <div class="modal-dialog" role="dialog" aria-hidden="true">
+                                <div class="modal-content" id="modal2">
+                                    <div class="modal-header">
+
+                                        <h3 class="modal-title">crop your profile picture</h3>
+                                    </div>
+                                    <div class="modal-body" id="cropdiv0">
+                                        <div id="cropdiv">
+                                            <img id="cropimage" src="/profiles/default.jpeg">
+                                        </div>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button id="cropprofilefile" class="btn btn-primary">
+                                        save
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
 
                         <div class="col-lg-6">
                             <ul class="nav nav-tabs">

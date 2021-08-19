@@ -38,5 +38,7 @@ Route::get('logout', 'Auth\LoginController@logout');
 
 Route::post('account/profilesave','AccountController@profileSave');
 Route::post('account/profileimgsave','AccountController@storeAlpha');
+Route::post('account/profileimgsave2','AccountController@storeBeta');
 Route::post('account/profileimgdel','AccountController@destroytmppic');
+
 

@@ -28,19 +28,22 @@
 }
 
 .modal,
+.modal2,
 .modal-backdrop {
     display: none;
     background-color: rgba(0,0,0,0.6) !important;
 }
 
 .modal.open,
+.modal2.open,
 .modal-backdrop.open {
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
 }
 
-.modal {
+.modal,
+.modal2 {
     display: none; /* Hidden by default */
     padding-top: 100px; /* Location of the box */
     background-color: rgb(0,0,0); /* Fallback color */
@@ -72,4 +75,13 @@
     display: block;
     text-align: center;
 }
+#cropdiv0,
+#cropdiv,
+{
+    width:inherit;
+}
 
+#cropimage{
+    display: block;
+    max-width: 100%;
+}

@@ -63,12 +63,32 @@ class AccountController extends Controller
         $imageUpload->userid = $request['user'];
         $imageUpload->save();
 
-        return \Redirect::to('/register');
+        return;
     }
 
     public function storeBeta(Request $request)
     {
+        define('UPLOAD_DIR', 'profiles/');
+        $img = $request->file;
 
+        $img = str_replace('data:image/png;base64,', '', $img);
+        $img = str_replace(' ', '+', $img);
+        $data = base64_decode($img);
+
+        $file0 = Auth::user()['id'] . '-' . time() .  '.png';
+
+        $file = UPLOAD_DIR . $file0;
+
+        file_put_contents($file, $data);
+
+        $path = public_path('profiles/') . Auth::user()["profilefile"];
+
+        if (file_exists($path) and Auth::user()["profilefile"] != "default.jpeg") {
+            unlink($path);
+        }
+
+        Auth::user()["profilefile"] = $file0;
+        Auth::user()->save();
     }
 
     public function destroytmppic(Request $request)
