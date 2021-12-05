@@ -75,7 +75,7 @@
                         </li>
 
                     @else
-                    /**
+                    <!--
                         <li class="nav-item dropdown">
 
                             <a href="#" class="nav-link dropdown-toggle acc" data-toggle="dropdown" role="button" aria-expanded="false">my account <span class="caret"></span></a>
@@ -86,7 +86,7 @@
                             </ul>
 
                         </li>
-                        */
+                        -->
 
                     @endif
                 </ul>
