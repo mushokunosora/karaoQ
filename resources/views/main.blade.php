@@ -16,12 +16,13 @@
         <h1 class="display-3">hi there!</h1>
         <p class="lead">welcome to my website- you'll get to learn all about me!</p>
         <hr class="my-4">
-        <p class="lead">I am a 17-year-old exhibitioner student at Westminster School, London, passionate in math, biology, statistics and computer science. I hope to become a leader in applied mathematics in biology (looking at bioengineering and bioinformatics).</p>
+        <p class="lead">I am a freshman in the Class of 2025 at the California Institute of Technology. I am passionate in Math, Biology, Chemistry, Computer Science, and the applied intersections in between. </p>
         <img id="education" class="myprofile" src="/images/profile.jpg">
 
 
         <h1 class="display-3">education</h1>
         <ul>
+            <li><p class="lead display-5">California Institute of Technology 2021-present</p></li>
             <li><p class="lead display-5">Westminster School 2017-2021</p></li>
             <li><p class="lead display-5">Harvard Extension School 2017-2021 gpa >3.9 </p></li>
             <li><p class="lead display-5">U.C. Berkeley Extension School 2020-2020 gpa 4.0</p></li>
@@ -79,7 +80,7 @@
 
         <h1 class="display-3">volunteering and work experience</h1>
         <ul>
-            <li><p class="lead display-5">2020-21 I am a volunteer teaching assistant in mathematics at Harvard University. I helped TA several classes: Math 23a “Real Analysis and Linear Algebra I”, RA-23 “Real Analysis”, and currently Math 23c “Mathematics for Computation and Data Science”. This has involved running sections and office-hours, writing quizzes, and grading. It has also involved building software for presenting proofs and problems. Finally, I have interacted with students, identifying what would not be clear, and finding alternative ways to explain.
+            <li><p class="lead display-5">2020-21 I was a teaching assistant in mathematics at Harvard University. I helped TA several classes: Math 23a “Real Analysis and Linear Algebra I”, RA-23 “Real Analysis”, and currently Math 23c “Mathematics for Computation and Data Science”. This has involved running sections and office-hours, writing quizzes, and grading. It has also involved building software for presenting proofs and problems. Finally, I have interacted with students, identifying what would not be clear, and finding alternative ways to explain.
             <li><p class="lead display-5">2020 I worked part time remotely for the StopTB Partnership (a division of the United Nations Office for Project Services). I wrote scripts to collect any data I could find on TB key populations (such as prisons). I determined which data to collect, how to efficiently filter it, using algorithms and mathematics. I even started working on the presentation of the data to the public, applying my more creative side! I also had the chance to work with people like Dr. Sara Gonzales, Data-Analyst and member of the Secretariat (the Executive Director’s office).
             <li><p class="lead display-5">2020 Over quarantine, I helped build an internet-linked, battery-powered, high-capacity, automatic hand hydro-alcohol dispenser at Safe and Clean. These have been deployed worldwide, have created jobs in a depressed economy, and have earned millions in sales. I was able to help design the internet-communication-protocols for the Internet-of-Things (IoT) subsystem whose patent has been granted.</p></li>
             <li><p class="lead display-5">I was accepted to work at the Oxford Physics Rutherford Appleton Laboratory under Dr. Shinji Machida, but am waiting for COVID-19 restrictions to pass, before I can start interning there.</p></li>
