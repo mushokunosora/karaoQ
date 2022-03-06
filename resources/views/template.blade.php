@@ -47,6 +47,8 @@
                         </li>
 
                     @else
+
+                        <a href="/login" class="navbar-brand"><h4>login</h4></a>
                     <!--
                         <li class="nav-item dropdown">
 
@@ -83,23 +85,17 @@
             <li class="foot-item">
                 <a href="https://github.com/mushokunosora/karaoQ"><i class="fab fa-github" style="font-size:42px;"></i></a>
             </li>
-        </ul>
-        <br>
-        <ul class="footer-nav">
             <li class="foot-item">
                 <a href="mailto:alexisw@caltech.edu"><i class="far fa-envelope" style="font-size:42px;"></i></a><span id="spanemail">&nbsp; &nbsp;alexisw@caltech.edu</span>
             </li>
-        </ul>
-        <ul class="footer-nav">
             <li class="foot-item">
                 <a href="mailto:jspaul@caltech.edu"><i class="far fa-envelope" style="font-size:42px;"></i></a><span id="spanemail">&nbsp; &nbsp;jspaul@caltech.edu</span>
             </li>
-        </ul>
-        <ul class="footer-nav">
             <li class="foot-item">
                 <a href="mailto:knakagaw@caltech.edu"><i class="far fa-envelope" style="font-size:42px;"></i></a><span id="spanemail">&nbsp; &nbsp;knakagaw@caltech.edu</span>
             </li>
         </ul>
+        <br>
     </div>
     <br>
 </footer>
