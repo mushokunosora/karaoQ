@@ -35,13 +35,14 @@
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarResponsive">
-                <ul class="navbar-nav ml-auto">
+                <ul class="navbar-nav ms-md-auto">
+
                     @if(Auth::check())
                         <li class="nav-item dropdown">
 
                             <a href="#" class="nav-link dropdown-toggle acc" data-toggle="dropdown" role="button" aria-expanded="false">my account <span class="caret"></span></a>
                             <ul class="dropdown-menu" role="menu">
-                                <li><a class="dropdown-item" href="/account">profile</a></li>
+                                <li><a class="dropdown-item" href="/account">admin page</a></li>
 
                                 <li><a class="dropdown-item" href="{{ url('/logout') }}">logout</a></li>
 
@@ -51,7 +52,8 @@
 
                     @else
 
-                        <a href="/login" class="navbar-brand"><h4>login</h4></a>
+                       <a href="/login" class="navbar-link" style="text-decoration: none;">login</a>
+
                     <!--
                         <li class="nav-item dropdown">
 
@@ -82,7 +84,7 @@
 </div>
 
 <div style="height: 40px;"></div>
-
+<!--
 <footer>
     <br>
     <div class="container bg-light text-black" id="footcontainer">
@@ -108,4 +110,4 @@
     <br>
 </footer>
 
-</body>
+</body>-!>

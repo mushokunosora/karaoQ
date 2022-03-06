@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Models\Song;
 
 /*
 |--------------------------------------------------------------------------
@@ -14,23 +15,38 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('main');
+    $queue=Song::all();
+    $length=sizeof($queue);
+    return view('main')->with([
+        'queue'=> $queue,
+        'length' => $length
+    ]);
 });
 Route::get('/home', function () {
-    return view('home');
+    $queue=Song::all();
+    $length=sizeof($queue);
+    return view('home')->with([
+        'queue'=> $queue,
+        'length' => $length
+    ]);
 });
+
+
 Route::get('/account', function () {
-    return view('home');
+    $queue=Song::all();
+    $length=sizeof($queue);
+    return view('home')->with([
+        'queue'=> $queue,
+        'length' => $length
+    ]);
 });
 Route::get('/newsong', 'SongController@newsong');
+Route::get('/del', 'SongController@dropsong');
+Route::get('/next', 'SongController@nextsong');
 
 Auth::routes();
 
 Route::get('logout', 'Auth\LoginController@logout');
 
-Route::post('account/profilesave','AccountController@profileSave');
-Route::post('account/profileimgsave','AccountController@storeAlpha');
-Route::post('account/profileimgsave2','AccountController@storeBeta');
-Route::post('account/profileimgdel','AccountController@destroytmppic');
 
 

@@ -12,6 +12,9 @@ use Illuminate\Support\Facades\Hash;
 
 class SongController extends Controller
 {
+    function get_youtube_id_from_url($url)  {
+        preg_match('/(http(s|):|)\/\/(www\.|)yout(.*?)\/(embed\/|watch.*?v=|)([a-z_A-Z0-9\-]{11})/i', $url, $results);    return $results[6];
+    }
     /**
      * GET
      * /newsong
@@ -25,37 +28,49 @@ class SongController extends Controller
         if($title and $link and $duration) {
             $song = new Song();
             $song->title =$title;
-            $song->link = $link;
+            $song->link = $this->get_youtube_id_from_url($link);
             $song->duration = $duration;
             $song->save();
         }
-
-
-        return view('main');
-
-        /*
-         * ->with([
-        'searchTerm' => $searchTerm,
-        'caseSensitive' => $request->has('caseSensitive'),
-        'searchResults' => $searchResults
-    ]);
-         */
+        $queue=Song::all();
+        $length=sizeof($queue);
+        return view('main')->with([
+            'queue'=> $queue,
+            'length' => $length
+        ]);
     }
 
     /*
      * takes array of song ids to delete*/
-    public function dropsongs(Request $request)
+    public function dropsong(Request $request)
     {
         $idsdata = $request->input('ids', null);
 
         if($idsdata) {
-            $ids = explode(",",$idsdata);
-            foreach ($ids as $id){
+            foreach ($idsdata as $id){
                 $song = Song::where('id', '=', $id)->first();
                 $song->delete();
             }
         }
-        return view('home');
+        $queue=Song::all();
+        $length=sizeof($queue);
+        return view('home')->with([
+            'queue'=> $queue,
+            'length' => $length
+        ]);
+    }
+
+    public function nextsong()
+    {
+        $song = Song::orderBy('id')->first();
+        $song->delete();
+
+        $queue=Song::all();
+        $length=sizeof($queue);
+        return view('home')->with([
+            'queue'=> $queue,
+            'length' => $length
+        ]);
     }
 
 }
