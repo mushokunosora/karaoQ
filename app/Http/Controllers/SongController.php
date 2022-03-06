@@ -25,11 +25,11 @@ class SongController extends Controller
         $link = $request->input('link', null);
         $duration = $request->input('duration', null);
 
-        if($title and $link and $duration) {
+        if($title and $link) {
             $song = new Song();
             $song->title =$title;
             $song->link = $this->get_youtube_id_from_url($link);
-            $song->duration = $duration;
+            $song->duration = "200";
             $song->save();
         }
         $queue=Song::all();

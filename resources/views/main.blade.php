@@ -16,10 +16,6 @@
             <input type='text' class= "form-control" name='link' id='link' value=''>
             <br>
             <br>
-            <label for='duration'>duration:</label>
-            <input type='text' class= "form-control" name='duration' id='duration' value=''>
-            <br>
-            <br>
             <input type='submit' class='btn btn-primary btn-small'>
         </form>
         </div>
