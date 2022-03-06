@@ -10,7 +10,7 @@ footer {
     border-radius: 555px 25px 15px 25px/25px 5px 35px 555px !important;
     /*0 25px 225px 0/25px 0 25px 255px;*/
     border-width: 2px 0 0;
-    border-color: #333;
+    border-color: rgba(1,1,1,0.2);
     border-style: solid;
 }
 .footer-nav{

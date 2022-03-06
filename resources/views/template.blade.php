@@ -25,41 +25,13 @@
 <body>
 
 <header>
-    <div class="navbar navbar-expand-lg fixed-top navbar-light bg-light">
+    <div class="navbar navbar-expand-lg fixed-top navbar-dark bg-dark">
         <div class="container">
-            <a href="../" class="navbar-brand"><h3>js paul</h3></a>
+            <a href="../" class="navbar-brand"><h3>karaoQ</h3></a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarResponsive">
-                <ul class="navbar-nav">
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" id="download" aria-expanded="false">news <span class="caret"></span></a>
-                        <div class="dropdown-menu" aria-labelledby="download">
-                            <a class="dropdown-item" href="/">coming soon</a>
-                        </div>
-                    </li>
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" id="download" aria-expanded="false">about me<span class="caret"></span></a>
-                        <div class="dropdown-menu" aria-labelledby="download">
-                            <a class="dropdown-item" href="/">home</a>
-                            <a class="dropdown-item" href="/#welcome">welcome</a>
-                            <a class="dropdown-item" href="/#education">education</a>
-                            <a class="dropdown-item" href="/#achievements">achievements</a>
-                            <a class="dropdown-item" href="/#languages">languages</a>
-                            <a class="dropdown-item" href="/#skills">skills</a>
-                            <a class="dropdown-item" href="/#volunteering">volunteering and work experience</a>
-                            <a class="dropdown-item" href="/#other">other extra-curriculars</a>
-                            <a class="dropdown-item" href="/#contact">contact</a>
-                            <div class="dropdown-divider"></div>
-                            <a class="dropdown-item" href="/coursework">coursework</a>
-                            <a class="dropdown-item" href="/achievements">detailed achievements</a>
-                        </div>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link " href="/portfolio">portfolio</a>
-                    </li>
-                </ul>
                 <ul class="navbar-nav ml-auto">
                     @if(Auth::check())
                         <li class="nav-item dropdown">
@@ -97,44 +69,35 @@
 <br>
 
 <div class="container" id="mainbody">
+    <br>
     @yield('data')
-    <div class="baked">
-        <br>
-        <img class="img-baked" src="/images/ground.jpg" alt="">
-        <br>
-    </div>
+    <br>
 </div>
-
-
-
-
-
-
-
 
 <footer>
     <br>
-    <div class="container">
-        <h3 id="contact">follow me</h3>
+    <div class="container" id="footcontainer">
+        <h3 id="contact">follow karaoQ</h3>
         <br>
         <ul class="footer-nav">
             <li class="foot-item">
-                <a href="https://github.com/jspaul2003"><i class="fab fa-github" style="font-size:42px;"></i></a>
-            </li>
-            <li class="foot-item">
-                <a href="https://www.facebook.com/profile.php?id=100013608780941"><i class="fab fa-facebook" style="font-size:42px;"></i></a>
-            </li>
-            <li class="foot-item">
-                <a href="https://twitter.com/jspaul2003"><i class="fab fa-twitter" style="font-size:42px;"></i></a>
-            </li>
-            <li class="foot-item">
-                <a href="https://www.instagram.com/jspaul2003/"><i class="fab fa-instagram" style="font-size:42px;"></i></a>
+                <a href="https://github.com/mushokunosora/karaoQ"><i class="fab fa-github" style="font-size:42px;"></i></a>
             </li>
         </ul>
         <br>
         <ul class="footer-nav">
             <li class="foot-item">
+                <a href="mailto:alexisw@caltech.edu"><i class="far fa-envelope" style="font-size:42px;"></i></a><span id="spanemail">&nbsp; &nbsp;alexisw@caltech.edu</span>
+            </li>
+        </ul>
+        <ul class="footer-nav">
+            <li class="foot-item">
                 <a href="mailto:jspaul@caltech.edu"><i class="far fa-envelope" style="font-size:42px;"></i></a><span id="spanemail">&nbsp; &nbsp;jspaul@caltech.edu</span>
+            </li>
+        </ul>
+        <ul class="footer-nav">
+            <li class="foot-item">
+                <a href="mailto:knakagaw@caltech.edu"><i class="far fa-envelope" style="font-size:42px;"></i></a><span id="spanemail">&nbsp; &nbsp;knakagaw@caltech.edu</span>
             </li>
         </ul>
     </div>
