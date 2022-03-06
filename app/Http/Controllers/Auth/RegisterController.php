@@ -53,14 +53,6 @@ class RegisterController extends Controller
             'name' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
             'password' => ['required', 'string', 'min:8', 'confirmed'],
-            'admin' => ['boolean'],
-            'profilefile'=> ['string','max:50000'],
-            'about' => ['string', 'max:50000'],
-            'location' => ['string', 'max:500'],
-            'showemail' => ['boolean'],
-            'showloc' => ['boolean'],
-            'showposts' => ['boolean'],
-            'posts'=>['integer'],
         ]);
     }
 
@@ -76,14 +68,6 @@ class RegisterController extends Controller
             'name' => $data['name'],
             'email' => $data['email'],
             'password' => Hash::make($data['password']),
-            'admin' => false,
-            'profilefile' => "default.jpeg",
-            'about'=>"",
-            'location'=>"",
-            'showemail'=>false,
-            'showloc'=>false,
-            'showposts'=>false,
-            'posts'=>0,
         ]);
     }
 }
