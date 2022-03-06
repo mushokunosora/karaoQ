@@ -22,15 +22,7 @@ Route::get('/home', function () {
 Route::get('/account', function () {
     return view('home');
 });
-Route::get('/coursework', function () {
-    return view('coursework');
-});
-Route::get('/achievements', function () {
-    return view('achievements');
-});
-Route::get('/portfolio', function () {
-    return view('gallery');
-});
+Route::get('/newsong', 'SongController@newsong');
 
 Auth::routes();
 
