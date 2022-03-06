@@ -2,10 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="2f03b653-537b-4e86-8dd1-b151a51de64d" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/app/Models/Song.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Models/File.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Models/Tmppic.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/css/bootstrap.min.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/bootstrap.min.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -194,7 +191,7 @@
       <updated>1629138406955</updated>
       <workItem from="1629138409168" duration="3079000" />
       <workItem from="1629164302164" duration="33659000" />
-      <workItem from="1646553983655" duration="2072000" />
+      <workItem from="1646553983655" duration="2315000" />
     </task>
     <servers />
   </component>
